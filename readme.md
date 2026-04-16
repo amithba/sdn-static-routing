@@ -52,6 +52,7 @@ The controller installs flow rules manually to define routing paths between host
 
 ```bash
 python3 -m ryu.cmd.manager ryu.app.simple_switch_13
+```
 
 ### Step 3: Run Mininet (in another terminal)
 
