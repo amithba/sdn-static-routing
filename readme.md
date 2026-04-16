@@ -45,19 +45,18 @@ The controller installs flow rules manually to define routing paths between host
 ### Step 1: Activate environment
 
 ```bash
-source ~/ryu-env/bin/activate
+ source ~/ryu-env/bin/activate
 ```
 
 ### Step 2: Run Ryu Controller
 
 ```bash
-python3 -m ryu.cmd.manager controller.py
-```
+python3 -m ryu.cmd.manager ryu.app.simple_switch_13
 
 ### Step 3: Run Mininet (in another terminal)
 
 ```bash
-sudo mn --topo single,3 --controller remote
+sudo mn --topo linear,3 --controller=remote --switch ovsk --mac
 ```
 
 ### Step 4: Test connectivity
