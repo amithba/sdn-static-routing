@@ -1,16 +1,14 @@
 from mininet.topo import Topo
 
-class MyTopo(Topo):
-    def build(self):
+class SingleSwitchTopo(Topo):
+    def build(self, n=2):
 
-        h1 = self.addHost('h1')
-        h2 = self.addHost('h2')
-
+        # Create one switch (acts like router)
         s1 = self.addSwitch('s1')
-        s2 = self.addSwitch('s2')
 
-        self.addLink(h1, s1)
-        self.addLink(s1, s2)
-        self.addLink(s2, h2)
+        # Create n hosts dynamically
+        for i in range(1, n + 1):
+            host = self.addHost('h%s' % i)
+            self.addLink(host, s1)
 
-topos = {'mytopo': MyTopo}
+topos = {'single': SingleSwitchTopo}
